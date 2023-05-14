@@ -393,12 +393,12 @@
                                     ),
                                 margin: 1
                             },
-                            new go.Binding("itemArray", "a")
+                            new go.Binding("itemArray", "attribute")
                         )
                     ),
                     $(go.TextBlock,
                         { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255,255,255,0.5)" },
-                        new go.Binding("text", "n"))
+                        new go.Binding("text", "name"))
                 ));
 
             myDiagram.nodeTemplateMap.add("F",  // female
@@ -424,12 +424,12 @@
                                     ),
                                 margin: 1
                             },
-                            new go.Binding("itemArray", "a")
+                            new go.Binding("itemArray", "attribute")
                         )
                     ),
                     $(go.TextBlock,
                         { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255,255,255,0.5)" },
-                        new go.Binding("text", "n"))
+                        new go.Binding("text", "name"))
                 ));
 
             // the representation of each label node -- nothing shows on a Marriage Link
@@ -458,12 +458,12 @@
                 ));
 
             setupDiagram(myDiagram, [
-                { key: 0, n: "李聿軒", title: "我", sex: "M", mother: 3, father: 4, a: [] },
-                { key: 1, n: "李聿Hao", title: "哥哥", sex: "M", mother: 3, father: 4, wife: 2, a: [] },
-                { key: 2, n: "Hao Chang", title: "嫂子", sex: "F", husband: 2, a: [] },
-                { key: 3, n: "Mother", title: "媽媽", sex: "F", husband: 4, a: [] },
-                { key: 4, n: "Father", title: "爸爸", sex: "M", mother: 1, father: 0, wife: 3, a: [] },
-                { key: 4, n: "Azalea", title: "姪女", sex: "F", mother: 2, father: 1, a: [] },
+                { key: 0, name: "李聿軒", title: "我", sex: "M", mother: 3, father: 4, attribute: [] },
+                { key: 1, name: "李聿Hao", title: "哥哥", sex: "M", mother: 3, father: 4, wife: 2, attribute: [] },
+                { key: 2, name: "Hao Chang", title: "嫂子", sex: "F", husband: 2, attribute: [] },
+                { key: 3, name: "Mother", title: "媽媽", sex: "F", husband: 4, attribute: [] },
+                { key: 4, name: "Father", title: "爸爸", sex: "M", mother: 1, father: 0, wife: 3, attribute: [] },
+                { key: 4, name: "Azalea", title: "姪女", sex: "F", mother: 2, father: 1, attribute: [] },
             ],
                 0 /* focus on this person */);
         }
