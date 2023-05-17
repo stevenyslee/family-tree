@@ -398,7 +398,11 @@
                     ),
                     $(go.TextBlock,
                         { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255,255,255,0.5)" },
-                        new go.Binding("text", "name"))
+                        new go.Binding("text", "name")),
+                    $(go.TextBlock,
+                        { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255, 255, 255, 0.5)" },
+                        new go.Binding("text", "title")
+                    )
                 ));
 
             myDiagram.nodeTemplateMap.add("F",  // female
@@ -429,7 +433,11 @@
                     ),
                     $(go.TextBlock,
                         { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255,255,255,0.5)" },
-                        new go.Binding("text", "name"))
+                        new go.Binding("text", "name")),
+                    $(go.TextBlock,
+                        { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255, 255, 255, 0.5)" },
+                        new go.Binding("text", "title")
+                    )
                 ));
 
             // the representation of each label node -- nothing shows on a Marriage Link
@@ -457,14 +465,30 @@
                     $(go.Shape, { strokeWidth: 2.5, stroke: "#5d8cc1" /* blue */ })
                 ));
 
-            setupDiagram(myDiagram, [
-                { key: 0, name: "李聿軒", title: "我", sex: "M", mother: 3, father: 4, attribute: [] },
-                { key: 1, name: "李聿Hao", title: "哥哥", sex: "M", mother: 3, father: 4, wife: 2, attribute: [] },
-                { key: 2, name: "Hao Chang", title: "嫂子", sex: "F", husband: 2, attribute: [] },
-                { key: 3, name: "Mother", title: "媽媽", sex: "F", husband: 4, attribute: [] },
-                { key: 4, name: "Father", title: "爸爸", sex: "M", mother: 1, father: 0, wife: 3, attribute: [] },
-                { key: 4, name: "Azalea", title: "姪女", sex: "F", mother: 2, father: 1, attribute: [] },
-            ],
+            setupDiagram(myDiagram,
+                [
+                    // Primary Members
+                    { key: 0, name: "李聿軒", title: "我", sex: "M", mother: 3, father: 4, attribute: [] },
+                    { key: 1, name: "李聿Hao", title: "哥哥", sex: "M", mother: 3, father: 4, wife: 2, attribute: [] },
+                    { key: 2, name: "Hao Chang", title: "嫂子", sex: "F", husband: 2, attribute: [] },
+                    { key: 3, name: "Mother", title: "媽媽", sex: "F", husband: 4, mother: 200, father: 201, attribute: [] },
+                    { key: 4, name: "Father", title: "爸爸", sex: "M", mother: 100, father: 101, wife: 3, attribute: [] },
+                    { key: 5, name: "Azalea", title: "姪女", sex: "F", mother: 2, father: 1, attribute: [] },
+
+                    // Paternal lineage, ID starts at 100
+                    { key: 100, name: "Grandmother", title: "奶奶", sex: "F", husband: 101, attribute: [] },
+                    { key: 101, name: "Grandfather", title: "爺爺", sex: "M", wife: 100, attribute: [] },
+                    { key: 102, name: "Uncle", title: "伯伯", sex: "M", mother: 100, father: 101, attribute: [] },
+                    { key: 103, name: "Uncle 2", title: "伯伯", sex: "M", mother: 100, father: 101, attribute: [] },
+                    { key: 104, name: "Aunt", title: "姑姑", sex: "F", mother: 100, father: 101, attribute: [] },
+
+                    // Maternal lineage, ID starts at 200
+                    { key: 200, name: "Grandmother", title: "阿嬤", sex: "F", husband: 201, attribute: [] },
+                    { key: 201, name: "Grandfather", title: "阿公", sex: "M", wife: 200, attribute: [] },
+                    { key: 202, name: "L Uncle", title: "舅舅", sex: "M", mother: 200, father: 201, attribute: [] },
+                    { key: 203, name: "M Uncle", title: "舅舅", sex: "M", mother: 200, father: 201, attribute: [] },
+                    { key: 204, name: "S Uncle", title: "舅舅", sex: "M", mother: 200, father: 201, attribute: [] },
+                ],
                 0 /* focus on this person */);
         }
 
