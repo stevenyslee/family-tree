@@ -437,7 +437,8 @@
                     $(go.TextBlock,
                         { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255, 255, 255, 0.5)" },
                         new go.Binding("text", "title")
-                    )
+                    ),
+                    new go.Binding("zOrder"),
                 ));
 
             // the representation of each label node -- nothing shows on a Marriage Link
@@ -468,11 +469,11 @@
             setupDiagram(myDiagram,
                 [
                     // Primary Members
-                    { key: 0, name: "李聿軒", title: "我", sex: "M", mother: 3, father: 4, attribute: [] },
-                    { key: 1, name: "李聿Hao", title: "哥哥", sex: "M", mother: 3, father: 4, wife: 2, attribute: [] },
+                    { key: 0, name: "李聿軒", title: "我", sex: "M", mother: 4, father: 3, attribute: [] },
+                    { key: 1, name: "李聿Hao", title: "哥哥", sex: "M", mother: 4, father: 3, wife: 2, attribute: [] },
                     { key: 2, name: "Hao Chang", title: "嫂子", sex: "F", husband: 2, attribute: [] },
-                    { key: 3, name: "Mother", title: "媽媽", sex: "F", husband: 4, mother: 200, father: 201, attribute: [] },
-                    { key: 4, name: "Father", title: "爸爸", sex: "M", mother: 100, father: 101, wife: 3, attribute: [] },
+                    { key: 3, name: "Father", title: "爸爸", sex: "M", mother: 100, father: 101, wife: 4, attribute: [] },
+                    { key: 4, name: "Mother", title: "媽媽", sex: "F", husband: 3, mother: 200, father: 201, attribute: [] },
                     { key: 5, name: "Azalea", title: "姪女", sex: "F", mother: 2, father: 1, attribute: [] },
 
                     // Paternal lineage, ID starts at 100
